@@ -13,7 +13,6 @@ import com.gmail.kamil.jarmusik.dicegame.game.engine.result.GameResults;
  */
 public interface Game {
     void start();
-    void printResults();
     void debugMode(boolean debug);
     GameResults getGameResults();
 }

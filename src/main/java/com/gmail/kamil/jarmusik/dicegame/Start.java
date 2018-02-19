@@ -29,10 +29,10 @@ public class Start {
         game.debugMode(true);
         
         game.start();
-        game.printResults();
+        game.getGameResults().print();
         //wywołanie metody start resetuje wyniki i rozpoczyna nową grę;
         game.start();
-        game.printResults();
+        game.getGameResults().print();
         
         //można zdefiniować dowolną grę;
         System.out.println("-----------------");
@@ -77,7 +77,7 @@ public class Start {
                 .build();
         customGame.debugMode(false);
         customGame.start();
-        customGame.printResults();
+        customGame.getGameResults().print();
     }
     
 }

@@ -57,7 +57,7 @@ class Results implements GameResults {
     }
     
     @Override
-    public void printResults() {
+    public void print() {
         System.out.println("-----------------");
         getPeleton().forEach(a -> {
             System.out.println(a + " - " + results.get(a).toPlayerResult());
