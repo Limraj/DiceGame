@@ -90,11 +90,6 @@ public class DiceGame implements Game {
         while(engine.hasNextTurn())
             engine.nextTurn();
     }
-
-    @Override
-    public void printResults() {
-        engine.getGameResults().printResults();
-    }
     
     @Override
     public GameResults getGameResults() {

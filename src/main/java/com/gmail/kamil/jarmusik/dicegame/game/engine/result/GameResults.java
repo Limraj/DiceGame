@@ -14,10 +14,9 @@ import java.util.List;
  *
  * @author Kamil-Tomasz
  */
-public interface GameResults {
+public interface GameResults extends Displayable {
     PlayerResult getPlayerResultFor(String namePlayer) throws PlayerHasNotBeenAddedToGameException;
     PlayerResult getPlayerResultFor(PlayerGame player) throws PlayerHasNotBeenAddedToGameException;
     PlayerGame getLeader();
     List<PlayerGame> getPeleton();
-    void printResults();
 }
