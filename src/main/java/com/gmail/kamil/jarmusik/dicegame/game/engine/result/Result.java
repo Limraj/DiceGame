@@ -17,7 +17,7 @@ class Result implements PlayerResult {
     private final int numberOfWinningTurns;
     private final int currentTurnNumber;
     private final boolean empty;
-    private static Result INSTANCE_EMPTY = new Result();
+    private static final Result INSTANCE_EMPTY = new Result();
 
     public Result(int currentTurnNumber, BigDecimal points, int numberOfWinningTurns) {
         this.currentTurnNumber = currentTurnNumber;
