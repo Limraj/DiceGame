@@ -22,7 +22,7 @@ import java.util.Set;
  *
  * @author Kamil-Tomasz
  */
-public class DiceGame implements Game {
+public class DiceGame implements Game, DeveloperMode {
     
     GameEngine engine;
     
@@ -33,6 +33,11 @@ public class DiceGame implements Game {
     private DiceGame(Set<PlayerGame> players, GameRules rules) {
         System.out.println("Load game...");
         engine = new DiceGameEngine(players, rules);
+    }
+
+    @Override
+    public void debug(boolean debug) {
+        engine.debugMode(debug);
     }
 
     public static class Builder {
@@ -94,10 +99,5 @@ public class DiceGame implements Game {
     @Override
     public GameResults getGameResults() {
         return engine.getGameResults();
-    }
-
-    @Override
-    public void debugMode(boolean debug) {
-        engine.debugMode(debug);
     }
 }

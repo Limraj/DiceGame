@@ -21,8 +21,8 @@ class ResultModifier implements PlayerResultModifier {
 
     public ResultModifier() {
         winningTurns = new HashSet<>();
-        points = BigDecimal.ZERO;
         numberOfTurnCurrent = 0;
+        points = BigDecimal.ZERO;
     }
 
     @Override
@@ -42,8 +42,8 @@ class ResultModifier implements PlayerResultModifier {
 
     @Override
     public void reset() {
-        this.numberOfTurnCurrent = 0;
         this.winningTurns.clear();
+        this.numberOfTurnCurrent = 0;
         this.points = BigDecimal.ZERO;
     }
 
