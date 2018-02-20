@@ -41,7 +41,6 @@ public class DiceGame implements Game, DeveloperMode {
     }
 
     public static class Builder {
-
         //Set - nie chce żeby gracze mogli się powtarzać;
         private final Set<PlayerGame> players;
         private GameRules rules;
