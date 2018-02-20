@@ -5,13 +5,10 @@
  */
 package com.gmail.kamil.jarmusik.dicegame.game;
 
-import com.gmail.kamil.jarmusik.dicegame.game.engine.result.GameResults;
-
 /**
  *
  * @author Kamil-Tomasz
  */
-public interface Game {
-    void start();
-    GameResults getGameResults();
+public interface DeveloperMode {
+    void debug(boolean debug);
 }

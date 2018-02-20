@@ -22,7 +22,7 @@ import java.util.Set;
  *
  * @author Kamil-Tomasz
  */
-public class DiceGame implements Game {
+public class DiceGame implements Game, DeveloperMode {
     
     GameEngine engine;
     
@@ -35,8 +35,12 @@ public class DiceGame implements Game {
         engine = new DiceGameEngine(players, rules);
     }
 
-    public static class Builder {
+    @Override
+    public void debug(boolean debug) {
+        engine.debugMode(debug);
+    }
 
+    public static class Builder {
         //Set - nie chce żeby gracze mogli się powtarzać;
         private final Set<PlayerGame> players;
         private GameRules rules;
@@ -94,10 +98,5 @@ public class DiceGame implements Game {
     @Override
     public GameResults getGameResults() {
         return engine.getGameResults();
-    }
-
-    @Override
-    public void debugMode(boolean debug) {
-        engine.debugMode(debug);
     }
 }

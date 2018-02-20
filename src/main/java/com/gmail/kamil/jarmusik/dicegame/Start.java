@@ -6,6 +6,7 @@
 package com.gmail.kamil.jarmusik.dicegame;
 
 import com.gmail.kamil.jarmusik.dicegame.game.DiceGame;
+import com.gmail.kamil.jarmusik.dicegame.game.DiceGameDeveloperMode;
 import com.gmail.kamil.jarmusik.dicegame.game.Game;
 import com.gmail.kamil.jarmusik.dicegame.game.engine.result.PlayerResult;
 import com.gmail.kamil.jarmusik.dicegame.game.player.Player;
@@ -14,6 +15,7 @@ import com.gmail.kamil.jarmusik.dicegame.game.rule.GameRules;
 import com.gmail.kamil.jarmusik.dicegame.game.rule.MasterGame;
 import com.gmail.kamil.jarmusik.dicegame.game.rule.dice.DiceCube;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  *
@@ -25,14 +27,13 @@ public class Start {
         
         //Zad3
         System.out.println("Dice Game default:");
-        Game game = DiceGame.newGame();
-        game.debugMode(true);
-        
-        game.start();
-        game.getGameResults().print();
+        DiceGameDeveloperMode dev = new DiceGameDeveloperMode(DiceGame.newGame());
+        dev.debug(true);
+        dev.start();
+        System.out.println(dev.getGameResults().getLeader());
         //wywołanie metody start resetuje wyniki i rozpoczyna nową grę;
-        game.start();
-        game.getGameResults().print();
+        dev.start();
+        dev.getGameResults().print();
         
         //można zdefiniować dowolną grę;
         System.out.println("-----------------");
@@ -52,7 +53,7 @@ public class Start {
 
                 @Override
                 public BigDecimal pointsScoredPerRoll(int numberOfRollCurrent, int pointsRoll) {
-                    return BigDecimal.valueOf(pointsRoll);
+                    return BigDecimal.valueOf(pointsRoll).divide(BigDecimal.valueOf(numberOfRollCurrent), 2, RoundingMode.HALF_UP);
                 }
             })
             .setNumberOfRolls(7)
@@ -75,7 +76,6 @@ public class Start {
                 .addPlayer("Czwarty")
                 .addPlayer("Piąty")
                 .build();
-        customGame.debugMode(false);
         customGame.start();
         customGame.getGameResults().print();
     }
