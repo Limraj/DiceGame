@@ -9,6 +9,7 @@ import com.gmail.kamil.jarmusik.dicegame.game.player.PlayerGame;
 import com.gmail.kamil.jarmusik.dicegame.game.rule.DiceGameRules;
 import com.gmail.kamil.jarmusik.dicegame.game.rule.GameRules;
 import java.util.LinkedHashSet;
+import java.util.Set;
 
 /**
  *
@@ -24,14 +25,10 @@ public class GameFactory {
                 .build();
     }
     
-    public static Game newDiceGame(LinkedHashSet<PlayerGame> players, GameRules rules){
+    public static Game newDiceGame(Set<PlayerGame> players, GameRules rules){
         return new DiceGame.Builder()
                 .addPlayers(players)
                 .setRules(rules)
                 .build();
-    }
-    
-    public static DeveloperMode toDevMode(Game game){
-        return (DeveloperMode)game;
     }
 }

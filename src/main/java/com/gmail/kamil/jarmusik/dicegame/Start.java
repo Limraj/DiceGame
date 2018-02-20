@@ -5,7 +5,6 @@
  */
 package com.gmail.kamil.jarmusik.dicegame;
 
-import com.gmail.kamil.jarmusik.dicegame.game.DeveloperMode;
 import com.gmail.kamil.jarmusik.dicegame.game.DiceGame;
 import com.gmail.kamil.jarmusik.dicegame.game.Game;
 import com.gmail.kamil.jarmusik.dicegame.game.GameFactory;
@@ -29,13 +28,12 @@ public class Start {
         //Zad3
         System.out.println("Dice Game default:");
         Game game = GameFactory.newDiceGameDefault();
-        DeveloperMode dev = GameFactory.toDevMode(game);
-        dev.debug(true);
-        dev.start();
-        dev.getGameResults().print();
+        game.debugMode(true);
+        game.start();
+        game.getGameResults().print();
         //wywołanie metody start resetuje wyniki i rozpoczyna nową grę;
-        dev.start();
-        dev.getGameResults().print();
+        game.start();
+        game.getGameResults().print();
         
         //można zdefiniować dowolną grę;
         System.out.println("-----------------");

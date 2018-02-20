@@ -14,4 +14,5 @@ import com.gmail.kamil.jarmusik.dicegame.game.engine.result.GameResults;
 public interface Game {
     void start();
     GameResults getGameResults();
+    void debugMode(boolean debug);
 }
