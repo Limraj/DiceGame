@@ -34,7 +34,6 @@ public class DiceGameEngineTest {
     
     @BeforeAll
     public static void setup() {
-        
         player1 = new Player("Pierwszy");
         player2 = new Player("Drugi");
         Set<PlayerGame> players = new LinkedHashSet<>();
@@ -56,7 +55,6 @@ public class DiceGameEngineTest {
 
     @Test
     public void testNextTurn0() throws NumberOfTurnsHasExceededException, PlayerHasNotBeenAddedToGameException {
-        
         //When
         
         //Then
@@ -76,7 +74,6 @@ public class DiceGameEngineTest {
     
     @Test
     public void testNextTurn1() throws NumberOfTurnsHasExceededException, PlayerHasNotBeenAddedToGameException {
-        
         //When
         engine.nextTurn();
         engine.nextTurn();
