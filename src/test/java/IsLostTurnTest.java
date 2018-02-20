@@ -21,8 +21,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 public class IsLostTurnTest {
 
     static GameRules rules = DiceGameRules.newRules();
-    
-    @DisplayName("Should pass only the specified enum value as a method parameter")
+
     @ParameterizedTest(name = "{index} => isLostTurn({0},{1})={2}")
     @CsvFileSource(resources = "is-lost-turn-data-test.csv")
     void testIsLostTurn(int numberOfRollCurrent, int pointsRoll, boolean expected) {

@@ -22,7 +22,6 @@ public class IsWonTurnTest {
     
     static GameRules rules = DiceGameRules.newRules();
 
-    @DisplayName("Should pass only the specified enum value as a method parameter")
     @ParameterizedTest(name = "{index} => isWonTurn({0},{1})={2}")
     @CsvFileSource(resources = "is-won-turn-data-test.csv")
     void testIsWonTurn(int numberOfRollCurrent, int pointsRoll, boolean expected) {
