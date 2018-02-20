@@ -28,9 +28,27 @@ public class DiceGameRules implements GameRules {
     
     public static GameRules newRules() {
         
-        return new DiceGameRules.Builder()
+        return new DiceGameRules.Builder(new MasterGame() {
+                    @Override
+                    public boolean isWonTurn(int numberOfRollCurrent, int pointsRoll) {
+                        return (numberOfRollCurrent == 1 && (pointsRoll == 7 || pointsRoll == 11)) || pointsRoll == 5;
+                    }
+                    
+                    @Override
+                    public boolean isLostTurn(int numberOfRollCurrent, int pointsRoll) {
+                        return numberOfRollCurrent == 1 && (pointsRoll == 2 || pointsRoll == 12);
+                    }
+
+                    @Override
+                    public BigDecimal pointsScoredPerRoll(int numberOfRollCurrent, int pointsRoll) {
+                        return BigDecimal.valueOf(pointsRoll).divide(BigDecimal.valueOf(numberOfRollCurrent), 2, RoundingMode.HALF_UP);
+                    }
+                })
                 .addDice(new DiceCube())
                 .addDice(new DiceCube())
+                .setRulesOfWinning(() -> (PlayerResult o1, PlayerResult o2) -> {
+                    return o1.getPoints().compareTo(o2.getPoints());
+                })
                 .setNumberOfRolls(10)
                 .setNumberOfTurns(5)
                 .build();
@@ -96,32 +114,7 @@ public class DiceGameRules implements GameRules {
         private int numberOfRolls;
         private final MasterGame masterGame;
         private RulesOfWinning rulesOfWinning;
-        
-        public Builder() {
-            this.masterGame = new MasterGame() {
-                    @Override
-                    public boolean isWonTurn(int numberOfRollCurrent, int pointsRoll) {
-                        return (numberOfRollCurrent == 1 && (pointsRoll == 7 || pointsRoll == 11)) || pointsRoll == 5;
-                    }
-                    
-                    @Override
-                    public boolean isLostTurn(int numberOfRollCurrent, int pointsRoll) {
-                        return numberOfRollCurrent == 1 && (pointsRoll == 2 || pointsRoll == 12);
-                    }
 
-                    @Override
-                    public BigDecimal pointsScoredPerRoll(int numberOfRollCurrent, int pointsRoll) {
-                        return BigDecimal.valueOf(pointsRoll).divide(BigDecimal.valueOf(numberOfRollCurrent), 2, RoundingMode.HALF_UP);
-                    }
-                };
-            dices = new ArrayList<>();
-            rulesOfWinning = () -> (PlayerResult o1, PlayerResult o2) -> {
-                return o1.getPoints().compareTo(o2.getPoints());
-            };
-            numberOfRolls = 10;
-            numberOfTurns = 5;
-        }
-        
         public Builder(MasterGame masterGame) {
             this.masterGame = masterGame;
             dices = new ArrayList<>();
@@ -130,6 +123,14 @@ public class DiceGameRules implements GameRules {
             };
             numberOfRolls = 10;
             numberOfTurns = 5;
+        }
+        
+        public Builder(GameRules rules) {
+            this.masterGame = rules.getMasterGame();
+            dices = new ArrayList<>();
+            rulesOfWinning = rules.getRulesOfWinning();
+            numberOfRolls = rules.getNumberOfRolls();
+            numberOfTurns = rules.getNumberOfTurns();
         }
 
         public Builder setNumberOfTurns(int numberOfTurns) {
