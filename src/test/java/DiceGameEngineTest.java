@@ -42,14 +42,12 @@ public class DiceGameEngineTest {
         
         Integer[] sequenceForDice = {1,2,3,4,5,6,5,6,3,4,1,2,6,3,6,5,4,3,2,1};
         Integer[] sequenceForDice2 ={1,2,6,3,6,5,4,3,2,1,1,2,3,4,5,6,5,6,3,4};
-
-        GameRules rules = new DiceGameRules.Builder()
-                .setNumberOfTurns(5)
-                .setNumberOfRolls(10)
+        GameRules rulesDefault = DiceGameRules.newRules();
+        GameRules rulesWithDiceCustom = new DiceGameRules.Builder(rulesDefault)
                 .addDice(new DiceCubeOnlyTest(sequenceForDice))
                 .addDice(new DiceCubeOnlyTest(sequenceForDice2))
                 .build();
-        engine = new DiceGameEngine(players, rules);
+        engine = new DiceGameEngine(players, rulesWithDiceCustom);
         engine.debugMode(true);
     }
 
