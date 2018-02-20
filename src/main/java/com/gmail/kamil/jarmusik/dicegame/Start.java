@@ -5,9 +5,10 @@
  */
 package com.gmail.kamil.jarmusik.dicegame;
 
+import com.gmail.kamil.jarmusik.dicegame.game.DeveloperMode;
 import com.gmail.kamil.jarmusik.dicegame.game.DiceGame;
-import com.gmail.kamil.jarmusik.dicegame.game.DiceGameDeveloperMode;
 import com.gmail.kamil.jarmusik.dicegame.game.Game;
+import com.gmail.kamil.jarmusik.dicegame.game.GameFactory;
 import com.gmail.kamil.jarmusik.dicegame.game.engine.result.PlayerResult;
 import com.gmail.kamil.jarmusik.dicegame.game.player.Player;
 import com.gmail.kamil.jarmusik.dicegame.game.rule.DiceGameRules;
@@ -27,7 +28,8 @@ public class Start {
         
         //Zad3
         System.out.println("Dice Game default:");
-        DiceGameDeveloperMode dev = new DiceGameDeveloperMode(DiceGame.newGame());
+        Game game = GameFactory.newDiceGameDefault();
+        DeveloperMode dev = GameFactory.toDevMode(game);
         dev.debug(true);
         dev.start();
         dev.getGameResults().print();

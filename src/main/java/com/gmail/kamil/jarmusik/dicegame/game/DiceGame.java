@@ -26,10 +26,6 @@ public class DiceGame implements Game, DeveloperMode {
     
     GameEngine engine;
     
-    public static Game newGame() {
-        return new Builder().addPlayer("Pierwszy").addPlayer("Drugi").build();
-    }
-    
     private DiceGame(Set<PlayerGame> players, GameRules rules) {
         System.out.println("Load game...");
         engine = new DiceGameEngine(players, rules);
