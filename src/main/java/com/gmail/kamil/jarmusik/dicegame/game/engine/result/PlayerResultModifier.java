@@ -11,7 +11,7 @@ import java.math.BigDecimal;
  *
  * @author Kamil-Tomasz
  */
-interface PlayerResultModifier {
+public interface PlayerResultModifier {
     void addPoints(BigDecimal points);
     void addWinningTurn(int turn);
     void addTurn();

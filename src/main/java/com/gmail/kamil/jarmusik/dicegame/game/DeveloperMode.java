@@ -9,6 +9,6 @@ package com.gmail.kamil.jarmusik.dicegame.game;
  *
  * @author Kamil-Tomasz
  */
-public interface DeveloperMode {
+public interface DeveloperMode extends Game {
     void debug(boolean debug);
 }
