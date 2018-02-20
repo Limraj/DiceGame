@@ -22,18 +22,13 @@ import java.util.Set;
  *
  * @author Kamil-Tomasz
  */
-public class DiceGame implements Game, DeveloperMode {
+public class DiceGame implements Game {
     
     GameEngine engine;
     
     private DiceGame(Set<PlayerGame> players, GameRules rules) {
         System.out.println("Load game...");
         engine = new DiceGameEngine(players, rules);
-    }
-
-    @Override
-    public void debug(boolean debug) {
-        engine.debugMode(debug);
     }
 
     public static class Builder {
@@ -57,8 +52,8 @@ public class DiceGame implements Game, DeveloperMode {
             players.add(player);
             return this;
         }
-
-        public Builder addPlayers(LinkedHashSet<PlayerGame> players) {
+        
+        public Builder addPlayers(Set<PlayerGame> players) {
             this.players.addAll(players);
             return this;
         }
@@ -94,5 +89,10 @@ public class DiceGame implements Game, DeveloperMode {
     @Override
     public GameResults getGameResults() {
         return engine.getGameResults();
+    }
+
+    @Override
+    public void debugMode(boolean debug) {
+        engine.debugMode(debug);
     }
 }
