@@ -30,7 +30,7 @@ public class Start {
         DiceGameDeveloperMode dev = new DiceGameDeveloperMode(DiceGame.newGame());
         dev.debug(true);
         dev.start();
-        System.out.println(dev.getGameResults().getLeader());
+        dev.getGameResults().print();
         //wywołanie metody start resetuje wyniki i rozpoczyna nową grę;
         dev.start();
         dev.getGameResults().print();
