@@ -53,7 +53,7 @@ public class Start {
                 }
             })
             .setNumberOfRolls(17)
-            .setNumberOfTurns(14)
+            .setNumberOfTurns(13)
             .addDice(new DiceCube())
             .addDice(new DiceCube())
             .addDice(new DiceCube())
