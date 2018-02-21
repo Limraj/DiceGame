@@ -22,21 +22,20 @@ import java.util.Set;
 class Results implements GameResults {
     
     private final Map<PlayerGame, PlayerResultModifier> results = new LinkedHashMap<>();
-    private final Map<String, PlayerResultModifier> resultsForNames = new LinkedHashMap<>();
     private final RulesOfWinning rulesOfWinning;
 
     protected Results(Set<PlayerGame> players, RulesOfWinning rulesOfWinning) {
         players.forEach((player) -> {
             PlayerResultModifier modifier = new ResultModifier();
             results.put(player, modifier);
-            resultsForNames.put(player.getName(), modifier);
         });
         this.rulesOfWinning = rulesOfWinning;
     }
 
     @Override
     public PlayerResult getPlayerResultFor(PlayerGame player) throws PlayerHasNotBeenAddedToGameException {
-        return getPlayerResultFor(player.getName());
+        throwIfPlayerHasNotBeenAddedToGame(player);
+        return results.get(player).toPlayerResult();
     }
 
     @Override
