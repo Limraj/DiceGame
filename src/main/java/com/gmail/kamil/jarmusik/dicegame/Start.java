@@ -5,14 +5,10 @@
  */
 package com.gmail.kamil.jarmusik.dicegame;
 
-import com.gmail.kamil.jarmusik.dicegame.game.DiceGame;
-import com.gmail.kamil.jarmusik.dicegame.game.Game;
-import com.gmail.kamil.jarmusik.dicegame.game.GameFactory;
+import com.gmail.kamil.jarmusik.dicegame.game.*;
 import com.gmail.kamil.jarmusik.dicegame.game.engine.result.PlayerResult;
 import com.gmail.kamil.jarmusik.dicegame.game.player.Player;
-import com.gmail.kamil.jarmusik.dicegame.game.rule.DiceGameRules;
-import com.gmail.kamil.jarmusik.dicegame.game.rule.GameRules;
-import com.gmail.kamil.jarmusik.dicegame.game.rule.MasterGame;
+import com.gmail.kamil.jarmusik.dicegame.game.rule.*;
 import com.gmail.kamil.jarmusik.dicegame.game.rule.dice.DiceCube;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -80,5 +76,4 @@ public class Start {
         customGame.start();
         customGame.getGameResults().print();
     }
-    
 }

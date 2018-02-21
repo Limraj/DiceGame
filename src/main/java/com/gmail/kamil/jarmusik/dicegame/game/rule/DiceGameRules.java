@@ -6,8 +6,7 @@
 package com.gmail.kamil.jarmusik.dicegame.game.rule;
 
 import com.gmail.kamil.jarmusik.dicegame.game.engine.result.PlayerResult;
-import com.gmail.kamil.jarmusik.dicegame.game.rule.dice.Dice;
-import com.gmail.kamil.jarmusik.dicegame.game.rule.dice.DiceCube;
+import com.gmail.kamil.jarmusik.dicegame.game.rule.dice.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;

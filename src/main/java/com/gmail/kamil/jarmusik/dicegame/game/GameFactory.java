@@ -6,9 +6,7 @@
 package com.gmail.kamil.jarmusik.dicegame.game;
 
 import com.gmail.kamil.jarmusik.dicegame.game.player.PlayerGame;
-import com.gmail.kamil.jarmusik.dicegame.game.rule.DiceGameRules;
-import com.gmail.kamil.jarmusik.dicegame.game.rule.GameRules;
-import java.util.LinkedHashSet;
+import com.gmail.kamil.jarmusik.dicegame.game.rule.*;
 import java.util.Set;
 
 /**
