@@ -17,7 +17,7 @@ import java.util.Set;
  */
 public class GameFactory {
     
-    public static Game newDiceGameDefault(){
+    public static Game newDiceGameDefault() {
         return new DiceGame.Builder()
                 .addPlayer("Pierwszy")
                 .addPlayer("Drugi")
@@ -25,7 +25,7 @@ public class GameFactory {
                 .build();
     }
     
-    public static Game newDiceGame(Set<PlayerGame> players, GameRules rules){
+    public static Game newDiceGame(Set<PlayerGame> players, GameRules rules) {
         return new DiceGame.Builder()
                 .addPlayers(players)
                 .setRules(rules)

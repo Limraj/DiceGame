@@ -43,27 +43,28 @@ public class Start {
             
                 @Override
                 public boolean isWonTurn(int numberOfRollCurrent, int pointsRoll) {
-                    return pointsRoll < 10 && numberOfRollCurrent % 2 == 0;
+                    return pointsRoll == 11;
                 }
 
                 @Override
                 public boolean isLostTurn(int numberOfRollCurrent, int pointsRoll) {
-                    return pointsRoll > 9 && numberOfRollCurrent % 3 == 0;
+                    return (pointsRoll == 5 || pointsRoll == 7 || pointsRoll == 13);
                 }
 
                 @Override
                 public BigDecimal pointsScoredPerRoll(int numberOfRollCurrent, int pointsRoll) {
-                    return BigDecimal.valueOf(pointsRoll).divide(BigDecimal.valueOf(numberOfRollCurrent), 2, RoundingMode.HALF_UP);
+                    return BigDecimal.valueOf(pointsRoll)
+                            .divide(BigDecimal.valueOf(numberOfRollCurrent), 2, RoundingMode.HALF_UP);
                 }
             })
-            .setNumberOfRolls(7)
+            .setNumberOfRolls(77)
             .setNumberOfTurns(14)
             .addDice(new DiceCube())
             .addDice(new DiceCube())
             .addDice(new DiceCube())
             .setRulesOfWinning(() -> (PlayerResult o1, PlayerResult o2) -> {
                 int output = o2.getNumberOfWinningTurns() - o1.getNumberOfWinningTurns();
-                return output == 0 ?  o1.getPoints().compareTo(o2.getPoints()) : output;
+                return output == 0 ? o1.getPoints().compareTo(o2.getPoints()) : output;
             })
             .build();
         
@@ -76,6 +77,7 @@ public class Start {
                 .addPlayer("Czwarty")
                 .addPlayer("Piąty")
                 .build();
+        customGame.debugMode(true);
         customGame.start();
         customGame.getGameResults().print();
     }
