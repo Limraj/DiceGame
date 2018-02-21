@@ -96,4 +96,10 @@ public class DiceGame implements Game {
     public void debugMode(boolean debug) {
         engine.debugMode(debug);
     }
+    
+    @Override
+    public void printResults() {
+        engine.getGameResults().print();
+    }
+
 }

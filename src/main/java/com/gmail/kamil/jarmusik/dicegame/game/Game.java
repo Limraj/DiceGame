@@ -15,4 +15,6 @@ public interface Game {
     void start();
     GameResults getGameResults();
     void debugMode(boolean debug);
+    @Deprecated
+    void printResults();
 }

@@ -34,7 +34,6 @@ public class Start {
         //wywołanie metody start resetuje wyniki i rozpoczyna nową grę;
         game.start();
         game.getGameResults().print();
-        
         //można zdefiniować dowolną grę;
         System.out.println("-----------------");
         System.out.println("Dice game custom:");
