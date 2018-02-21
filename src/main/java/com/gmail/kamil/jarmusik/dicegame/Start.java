@@ -29,7 +29,6 @@ public class Start {
         game.start();
         game.getGameResults().print();
         //można zdefiniować dowolną grę;
-        System.out.println("-----------------");
         System.out.println("Dice game custom:");   
         
         GameRules customRules = new DiceGameRules.Builder(new MasterGame() {
@@ -70,7 +69,6 @@ public class Start {
                 .addPlayer("Czwarty")
                 .addPlayer("Piąty")
                 .build();
-        customGame.debugMode(true);
         customGame.start();
         customGame.getGameResults().print();
     }
