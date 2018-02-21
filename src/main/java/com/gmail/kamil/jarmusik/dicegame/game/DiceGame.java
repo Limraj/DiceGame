@@ -73,17 +73,18 @@ public class DiceGame implements Game {
     @Override
     public void start() {
         System.out.println("Start game!");
-        try {
-            execute();
-        } catch (NumberOfTurnsHasExceededException ex) {
-            Logger.getLogger(DiceGame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        execute();
     }
     
-    private void execute() throws NumberOfTurnsHasExceededException {
+    private void execute() {
         engine.reset();
-        while(engine.hasNextTurn())
-            engine.nextTurn();
+        while(engine.hasNextTurn()) {
+            try {
+                engine.nextTurn();
+            } catch (NumberOfTurnsHasExceededException ex) {
+                Logger.getLogger(DiceGame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
     @Override
