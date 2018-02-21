@@ -15,9 +15,9 @@ import com.gmail.kamil.jarmusik.dicegame.game.engine.result.GameResults;
  */
 public interface GameEngine {
     int getTotalNumberOfTurn();
-    boolean hasNextTurn();
+    void debugMode(boolean debug);
     void reset();
+    boolean hasNextTurn();
     GameEngine nextTurn() throws NumberOfTurnsHasExceededException;
     GameResults getGameResults();
-    void debugMode(boolean debug);
 }

@@ -28,20 +28,21 @@ import java.util.Set;
 public class DiceGameEngine implements GameEngine {
     
     private int totalNumberOfTurns;
-    private final GameResultsModifier gameResultsModifier;
-    private final GameRules rules;
-    private final IterableShift<PlayerGame> playersRegisterShift;
-    private final TurnLoggable logger;
     private boolean debugMode;
+    private final IterableShift<PlayerGame> playersRegisterShift;
+    private final GameResultsModifier gameResultsModifier;
+    private final TurnLoggable logger;
+    private final GameRules rules;
 
+    
     public DiceGameEngine(Set<PlayerGame> players, GameRules rules) {
         System.out.print("Load engine...");
-        this.gameResultsModifier = new ResultsModifier(players, rules.getRulesOfWinning());
-        this.rules = rules;
         this.totalNumberOfTurns = 0;
-        this.playersRegisterShift = new PlayersShiftRegister(players);
-        this.logger = new TurnLogger();
         this.debugMode = false;
+        this.playersRegisterShift = new PlayersShiftRegister(players);
+        this.gameResultsModifier = new ResultsModifier(players, rules.getRulesOfWinning());
+        this.logger = new TurnLogger();
+        this.rules = rules;
         System.out.println(" ok");
     }
 

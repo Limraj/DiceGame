@@ -25,7 +25,6 @@ public class Verdict {
     
     static List<PlayerGame> determinePeleton(Map<PlayerGame, PlayerResultModifier> modifiers, RulesOfWinning rulesOfWinning) {
         List<PlayerGame> sorted = SortMap.sortByValueToKeyList(toMapPlayerResult(modifiers), rulesOfWinning.getRules());
-        //System.out.println("Sorted: " + sorted);
         return Collections.unmodifiableList(sorted);
     }
     
