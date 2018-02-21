@@ -17,7 +17,7 @@ public interface GameRules {
     int getNumberOfDices();
     int getNumberOfRolls();
     int getNumberOfWallsOfDice();
-    MasterGame getMasterGame();
     BigDecimal maxPointsToEndTurn(int numberOfRollCurrent);
     RulesOfWinning getRulesOfWinning();
+    MasterGame getMasterGame();
 }

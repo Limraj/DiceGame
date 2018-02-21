@@ -19,16 +19,15 @@ import java.util.stream.Stream;
  * @author Kamil-Tomasz
  */
 public class DiceGameRules implements GameRules {
-    
-    private final List<Dice> dices;
+
     private final int numberOfTurns;
     private final int numberOfRolls;
     private final int numberOfWallsOfDice;
-    private final MasterGame masterGame;
     private final RulesOfWinning rulesOfWinning;
-    
+    private final MasterGame masterGame;
+    private final List<Dice> dices;
+
     public static GameRules newRules() {
-        
         return new DiceGameRules.Builder(new MasterGame() {
                     @Override
                     public boolean isWonTurn(int numberOfRollCurrent, int pointsRoll) {
@@ -80,7 +79,9 @@ public class DiceGameRules implements GameRules {
     @Override
     public int rollOfDices() {
         int points = 0;
-        return dices.stream().map((dice) -> dice.rollOfDice()).reduce(points, Integer::sum);
+        return dices.stream()
+                .map((dice) -> dice.rollOfDice())
+                .reduce(points, Integer::sum);
     }
 
     @Override
