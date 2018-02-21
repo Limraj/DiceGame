@@ -30,7 +30,7 @@ public class Start {
         game.getGameResults().print();
         //można zdefiniować dowolną grę;
         System.out.println("-----------------");
-        System.out.println("Dice game custom:");
+        System.out.println("Dice game custom:");   
         
         GameRules customRules = new DiceGameRules.Builder(new MasterGame() {
             
