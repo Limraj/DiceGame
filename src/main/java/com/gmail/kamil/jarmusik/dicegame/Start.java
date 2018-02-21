@@ -52,7 +52,7 @@ public class Start {
                             .divide(BigDecimal.valueOf(numberOfRollCurrent), 2, RoundingMode.HALF_UP);
                 }
             })
-            .setNumberOfRolls(77)
+            .setNumberOfRolls(17)
             .setNumberOfTurns(14)
             .addDice(new DiceCube())
             .addDice(new DiceCube())
