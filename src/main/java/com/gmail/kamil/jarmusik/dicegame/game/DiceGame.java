@@ -5,16 +5,12 @@
  */
 package com.gmail.kamil.jarmusik.dicegame.game;
 
-import com.gmail.kamil.jarmusik.dicegame.game.engine.DiceGameEngine;
-import com.gmail.kamil.jarmusik.dicegame.game.engine.GameEngine;
+import com.gmail.kamil.jarmusik.dicegame.game.engine.*;
 import com.gmail.kamil.jarmusik.dicegame.game.engine.exception.NumberOfTurnsHasExceededException;
 import com.gmail.kamil.jarmusik.dicegame.game.engine.result.GameResults;
-import com.gmail.kamil.jarmusik.dicegame.game.player.Player;
-import com.gmail.kamil.jarmusik.dicegame.game.player.PlayerGame;
-import com.gmail.kamil.jarmusik.dicegame.game.rule.DiceGameRules;
-import com.gmail.kamil.jarmusik.dicegame.game.rule.GameRules;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import com.gmail.kamil.jarmusik.dicegame.game.player.*;
+import com.gmail.kamil.jarmusik.dicegame.game.rule.*;
+import java.util.logging.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
 

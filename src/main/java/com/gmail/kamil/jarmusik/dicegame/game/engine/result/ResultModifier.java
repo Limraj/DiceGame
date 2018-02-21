@@ -6,8 +6,7 @@
 package com.gmail.kamil.jarmusik.dicegame.game.engine.result;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  *

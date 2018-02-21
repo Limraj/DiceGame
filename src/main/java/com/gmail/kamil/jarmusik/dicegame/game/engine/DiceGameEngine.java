@@ -1,14 +1,9 @@
 package com.gmail.kamil.jarmusik.dicegame.game.engine;
 
-import com.gmail.kamil.jarmusik.dicegame.game.engine.exception.NumberOfTurnsHasExceededException;
-import com.gmail.kamil.jarmusik.dicegame.game.engine.exception.PlayerHasNotBeenAddedToGameException;
-import com.gmail.kamil.jarmusik.dicegame.game.engine.log.TurnLoggable;
-import com.gmail.kamil.jarmusik.dicegame.game.engine.log.TurnLogger;
-import com.gmail.kamil.jarmusik.dicegame.game.engine.result.GameResults;
-import com.gmail.kamil.jarmusik.dicegame.game.engine.result.GameResultsModifier;
-import com.gmail.kamil.jarmusik.dicegame.game.engine.result.ResultsModifier;
-import com.gmail.kamil.jarmusik.dicegame.game.player.PlayerGame;
-import com.gmail.kamil.jarmusik.dicegame.game.player.PlayersShiftRegister;
+import com.gmail.kamil.jarmusik.dicegame.game.engine.exception.*;
+import com.gmail.kamil.jarmusik.dicegame.game.engine.log.*;
+import com.gmail.kamil.jarmusik.dicegame.game.engine.result.*;
+import com.gmail.kamil.jarmusik.dicegame.game.player.*;
 import com.gmail.kamil.jarmusik.dicegame.game.rule.GameRules;
 import com.gmail.kamil.jarmusik.dicegame.util.IterableShift;
 import java.util.logging.Level;
