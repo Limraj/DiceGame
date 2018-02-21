@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  *
@@ -70,10 +71,10 @@ public class DiceGameRules implements GameRules {
 
     @Override
     public BigDecimal maxPointsToEndTurn(int numberOfRollCurrent) {
-        BigDecimal accumulator = BigDecimal.ZERO;
-        for (int i = numberOfRollCurrent; i < getNumberOfRolls() + 1; i++)
-            accumulator = accumulator.add(getMasterGame().pointsScoredPerRoll(i, getNumberOfDices() * getNumberOfWallsOfDice()));
-        return accumulator;
+        return Stream.iterate(numberOfRollCurrent, i -> i + 1)
+                .limit(getNumberOfRolls())
+                .map(i -> getMasterGame().pointsScoredPerRoll(i, getNumberOfDices() * getNumberOfWallsOfDice()))
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
     
     @Override
