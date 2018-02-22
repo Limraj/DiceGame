@@ -20,8 +20,7 @@ import java.math.RoundingMode;
 public class Start {
     
     public static void main(String[] args) {
-        
-        //Zad3
+
         System.out.println("Dice Game default:");
         Game game = GameFactory.newDiceGameDefault();
         game.debugMode(true);
