@@ -20,10 +20,6 @@ import java.math.RoundingMode;
 public class Start {
     
     public static void main(String[] args) {
-<<<<<<< HEAD
-
-=======
->>>>>>> beabd2e974fb36a20b6d54056d9a36012965fdf3
         System.out.println("Dice Game default:");
         Game game = GameFactory.newDiceGameDefault();
         game.debugMode(true);
